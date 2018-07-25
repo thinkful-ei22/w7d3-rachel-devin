@@ -28,6 +28,7 @@ export default function RenderMaze(props){
 
   newMaze[player.x] = stringSplice(newMaze[player.x])(player.y, 1, 'O');
   newMaze[goal.x] = stringSplice(newMaze[goal.x])(goal.y, 1, 'G');
+  
   return (
     <section className="maze-container">
       <pre>{newMaze[0]}</pre>
