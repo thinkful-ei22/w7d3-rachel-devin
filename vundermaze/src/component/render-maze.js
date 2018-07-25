@@ -2,12 +2,12 @@ import React from 'react';
 
 
 export default function RenderMaze(props){
-  const defaultMaze = [
-    'x---------+----x',
-    '|         |    |',
-    '+-+ +-----+ +  |',
-    '|           |  |',
-    '| +--+ +----+  |',
+  var defaultMaze = [
+    'x----------+---x',
+    '|          |   |',
+    '+-+ +------+ + |',
+    '|            | |',
+    '| +--+ +-----+ |',
     '|    | |       |',
     '+----+ +-------+',
     '|              |',
@@ -15,19 +15,30 @@ export default function RenderMaze(props){
   ]
 
   
+  const player = {x:5, y:14};
+  var newMaze = defaultMaze;
+
+  function stringSplice(s) {
+      return function splice() {
+          var a = s.split('');
+          Array.prototype.splice.apply(a, arguments);
+          return a.join('');
+      };
+  }
+
+  newMaze[player.x] = stringSplice(newMaze[7])(player.y, 1, 'O');
+
   return (
-    // player = {x:}
-    // var newMaze
     <section className="maze-container">
-      <pre>{defaultMaze[0]}</pre>
-      <pre>{defaultMaze[1]}</pre>
-      <pre>{defaultMaze[2]}</pre>
-      <pre>{defaultMaze[3]}</pre>
-      <pre>{defaultMaze[4]}</pre>
-      <pre>{defaultMaze[5]}</pre>
-      <pre>{defaultMaze[6]}</pre>
-      <pre>{defaultMaze[7]}</pre>
-      <pre>{defaultMaze[8]}</pre>
+      <pre>{newMaze[0]}</pre>
+      <pre>{newMaze[1]}</pre>
+      <pre>{newMaze[2]}</pre>
+      <pre>{newMaze[3]}</pre>
+      <pre>{newMaze[4]}</pre>
+      <pre>{newMaze[5]}</pre>
+      <pre>{newMaze[6]}</pre>
+      <pre>{newMaze[7]}</pre>
+      <pre>{newMaze[8]}</pre>
     </section>
   )
 
