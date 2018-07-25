@@ -22,8 +22,8 @@ export default function RenderMaze(props){
       };
   }
 
-  const player = {x:7, y:14};
-  const goal = {x:5, y:8};
+  const player = props.player;
+  const goal = props.goal;
   var newMaze = defaultMaze;
 
   newMaze[player.x] = stringSplice(newMaze[player.x])(player.y, 1, 'O');
