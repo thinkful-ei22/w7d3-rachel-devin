@@ -22,11 +22,12 @@ export default function RenderMaze(props){
       };
   }
 
-  const player = {x:5, y:14};
+  const player = {x:7, y:14};
+  const goal = {x:5, y:8};
   var newMaze = defaultMaze;
 
   newMaze[player.x] = stringSplice(newMaze[player.x])(player.y, 1, 'O');
-
+  newMaze[goal.x] = stringSplice(newMaze[goal.x])(goal.y, 1, 'G');
   return (
     <section className="maze-container">
       <pre>{newMaze[0]}</pre>
