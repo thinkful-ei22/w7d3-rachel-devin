@@ -1,5 +1,5 @@
 import React from 'react';
-
+import './render-maze.css';
 
 export default function RenderMaze(props){
   const defaultMaze = [
@@ -28,8 +28,8 @@ export default function RenderMaze(props){
 
   newMaze[player.x] = stringSplice(newMaze[player.x])(player.y, 1, 'O');
   newMaze[goal.x] = stringSplice(newMaze[goal.x])(goal.y, 1, 'G');
-  
-  return (
+
+  const mazeHTML = (
     <section className="maze-container">
       <pre>{newMaze[0]}</pre>
       <pre>{newMaze[1]}</pre>
@@ -42,6 +42,19 @@ export default function RenderMaze(props){
       <pre>{newMaze[8]}</pre>
     </section>
   )
+
+  const cookie = (
+    <section className="maze-container">
+      <h2>You Win a Cookie!</h2>
+      <img src="./cookie.jpg" alt="You Win!" />
+    </section>
+  )
+
+  console.log('Has won: ', props.hasWon);
+  if(!props.hasWon)
+    return mazeHTML;
+  else  
+    return cookie;
 
 
 }

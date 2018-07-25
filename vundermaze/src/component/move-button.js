@@ -21,6 +21,7 @@ export default function RenderMaze(props) {
     <button onClick={e => {
       if ((target.x === goal.x) && (target.y === goal.y)) {
         console.log("Have a cookie!");
+        props.handleWin();
       } else if (defaultMaze[target.x][target.y] === ' ') {
         console.log("VALID SPACE")
         props.handleClick(target);
