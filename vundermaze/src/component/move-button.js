@@ -18,7 +18,7 @@ export default function RenderMaze(props) {
   const target = props.target;
 
   return (
-    <button onClick={e => {
+    <button className="moveButton" onClick={e => {
       if ((target.x === goal.x) && (target.y === goal.y)) {
         console.log("Have a cookie!");
         props.handleWin();

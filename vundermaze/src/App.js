@@ -3,6 +3,7 @@ import './App.css';
 
 import RenderMaze from './component/render-maze'
 import MoveButton from './component/move-button'
+import ResetButton from './component/reset-button'
 
 class App extends Component {
   constructor(props) {
@@ -13,7 +14,6 @@ class App extends Component {
       hasWon: false
     }
   }
-  
 
   setPlayerPosition(targetPos) {
     this.setState({
@@ -24,6 +24,14 @@ class App extends Component {
   setWin(){
     this.setState({
       hasWon: true
+    })
+  }
+
+  resetGame(){
+    this.setState({
+      player: { x: 7, y: 14 },
+      goal: { x: 5, y: 8 },
+      hasWon: false
     })
   }
 
@@ -68,6 +76,8 @@ class App extends Component {
         <MoveButton label="right" target={targetRight} goal={goal} 
                     handleClick={val => this.setPlayerPosition(val)}
                     handleWin={val=> this.setWin()}/>
+
+        <br/><br/><ResetButton handleClick={val=> this.resetGame()} />
       </div>
     );
   }
