@@ -2,17 +2,7 @@ import React from 'react';
 import './render-maze.css';
 
 export default function RenderMaze(props){
-  const defaultMaze = [
-    'x----------+---x',
-    '|          |   |',
-    '+-+ +------+ + |',
-    '|            | |',
-    '| +--+ +-----+ |',
-    '|    | |       |',
-    '+----+ +-------+',
-    '|              |',
-    'x--------------x'
-  ]
+  const defaultMaze = props.map.slice();
 
   function stringSplice(s) {
       return function splice() {
