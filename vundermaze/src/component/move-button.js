@@ -23,6 +23,7 @@ export default function RenderMaze(props) {
         console.log("Have a cookie!");
       } else if (defaultMaze[target.x][target.y] === ' ') {
         console.log("VALID SPACE")
+        props.handleClick(target);
       } else {
         console.log("INVALID SPACE");
       }

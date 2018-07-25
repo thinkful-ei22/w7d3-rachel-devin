@@ -10,6 +10,7 @@ class App extends Component {
     this.state = {
       player: { x: 7, y: 14 },
       goal: { x: 5, y: 8 },
+      hasWon: false
 
     }
   }
@@ -48,10 +49,14 @@ class App extends Component {
         </header>
         <RenderMaze player={player} goal={goal} />
 
-        <MoveButton label="left" target={targetLeft} />
-        <MoveButton label="up" target={targetUp} />
-        <MoveButton label="down" target={targetDown} />
-        <MoveButton label="right" target={targetRight} />
+        <MoveButton label="left" target={targetLeft} goal={goal}
+                    handleClick={val => this.setPlayerPosition(val)}/>
+        <MoveButton label="up" target={targetUp} goal={goal} 
+                    handleClick={val => this.setPlayerPosition(val)}/>
+        <MoveButton label="down" target={targetDown} goal={goal} 
+                    handleClick={val => this.setPlayerPosition(val)}/>
+        <MoveButton label="right" target={targetRight} goal={goal} 
+                    handleClick={val => this.setPlayerPosition(val)}/>
       </div>
     );
   }
