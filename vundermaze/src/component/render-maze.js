@@ -2,7 +2,7 @@ import React from 'react';
 
 
 export default function RenderMaze(props){
-  var defaultMaze = [
+  const defaultMaze = [
     'x----------+---x',
     '|          |   |',
     '+-+ +------+ + |',
@@ -14,10 +14,6 @@ export default function RenderMaze(props){
     'x--------------x'
   ]
 
-  
-  const player = {x:5, y:14};
-  var newMaze = defaultMaze;
-
   function stringSplice(s) {
       return function splice() {
           var a = s.split('');
@@ -26,7 +22,10 @@ export default function RenderMaze(props){
       };
   }
 
-  newMaze[player.x] = stringSplice(newMaze[7])(player.y, 1, 'O');
+  const player = {x:5, y:14};
+  var newMaze = defaultMaze;
+
+  newMaze[player.x] = stringSplice(newMaze[player.x])(player.y, 1, 'O');
 
   return (
     <section className="maze-container">
